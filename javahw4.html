@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Game Result Generator</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        text-align: center;
+        padding-top: 50px;
+    }
+    .box{
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input{
+        padding: 8px;
+        width: 200px;
+        margin: 10px;
+    }
+    button{
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #0056b3;
+    }
+    #output{
+        margin-top: 20px;
+        text-align: left;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Game Result Generator</h2>
+
+<input type="text" id="score" placeholder="Enter your score (e.g. 45)">
+<br>
+<button onclick="generateResult()">Generate Result</button>
+
+<div id="output"></div>
+</div>
+
+<script>
+function generateResult(){
+
+    let mysteryLevel = Math.floor(Math.random() * 50) + 1;
+
+    let userScoreString = document.getElementById("score").value;
+
+    let userScore = Number(userScoreString);
+
+    let difference = Math.abs(mysteryLevel - userScore);
+
+    let squareRoot = Math.sqrt(userScore);
+
+    
+    let piValue = Math.PI;
+
+    let implicitResult = "20" * 5;
+
+    
+    let highest = Math.max(10, 20, mysteryLevel);
+    let lowest = Math.min(10, 20, mysteryLevel);
+
+    
+    document.getElementById("output").innerHTML = `
+        <h3>Results</h3>
+        Mystery Level: ${mysteryLevel} <br>
+        User Score: ${userScore} <br>
+        Absolute Difference: ${difference} <br>
+        Square Root of Score: ${squareRoot.toFixed(2)} <br>
+        Value of Pi: ${piValue} <br>
+        Implicit Conversion ("20" * 5): ${implicitResult} <br>
+        Highest Value (10, 20, Mystery): ${highest} <br>
+        Lowest Value (10, 20, Mystery): ${lowest}
+    `;
+}
+</script>
+
+</body>
+</html>
