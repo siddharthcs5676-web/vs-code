@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Dashboard</h2>
+
+<p id="demo"></p>
+
+<script>
+
+
+var students = [
+  {name:"Abina", score:95},
+  {name:"Akshiya", score:50},
+  {name:"Devika", score:90},
+  {name:"Divya", score:86},
+  {name:"Anu", score:75}
+];
+
+
+var names = students.map(s => s.name);
+
+
+var above60 = students
+                .filter(s => s.score > 60)
+                .map(s => s.name);
+
+
+var totalScore = students
+                  .reduce((total, s) => total + s.score, 0);
+
+var allPassed = students.every(s => s.score > 35);
+
+
+var oneTopper = students.some(s => s.score > 90);
+
+
+var sortedStudents = students
+                      .slice()
+                      .sort((a,b) => b.score - a.score);
+
+var sortedList = sortedStudents
+                  .map(s => s.name + " : " + s.score)
+                  .join("<br>");
+
+
+
+document.getElementById("demo").innerHTML =
+"<b>All Students:</b> " + names.join(", ") + "<br><br>" +
+
+"<b>Score > 60:</b> " + above60.join(", ") + "<br><br>" +
+
+"<b>Total Score:</b> " + totalScore + "<br><br>" +
+
+"<b>All Passed (>35):</b> " + allPassed + "<br><br>" +
+
+"<b>At least one score > 90:</b> " + oneTopper + "<br><br>" +
+
+"<b>Sorted by Score:</b><br>" + sortedList;
+
+</script>
+
+</body>
+</html>
