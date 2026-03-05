@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array Methods</h2>
+<p id="demo"></p>
+
+<script>
+
+var productname = ["Apple", "Orange"];
+var productprice = [50, 100];
+
+
+var fruits = [];
+for (var i = 0; i < productname.length; i++) {
+  fruits.push("Product: " + productname[i] + " - Price: " + productprice[i]);
+}
+
+
+text = "<h3>All Products</h3><ul>";
+for (var i = 0; i < fruits.length; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+
+var over50 = productprice.filter(myFunction);
+
+text += "<h3>Products with Price > 50</h3><ul>";
+for (var i = 0; i < productprice.length; i++) {
+  if (productprice[i] > 50) {
+    text += "<li>Product: " + productname[i] + " - Price: " + productprice[i] + "</li>";
+  }
+}
+text += "</ul>";
+
+
+productname.push("Watermelon");
+productprice.push(80);
+
+text += "<h3>Updated Product List</h3><ul>";
+for (var i = 0; i < productname.length; i++) {
+  text += "<li>Product: " + productname[i] + " - Price: " + productprice[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+
+function myFunction(value) {
+  return value > 50;
+}
+
+</script>
+
+</body>
+</html>
