@@ -1,0 +1,14 @@
+use BakeryShop
+switched to db BakeryShop
+db.orders.insertOne({"CustomerName":"AliceJohnson","item":"ChocolateCake","quantity":"2","totalprice":"500"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69cc15d4c963c8f457e4e660')
+}
+show collections
+orders
+db.orders.drop()
+true
+db.dropdatabase()
+TypeError: db.dropdatabase is not a function
+db.dropDatabase()
