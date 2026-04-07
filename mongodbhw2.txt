@@ -1,0 +1,11 @@
+> 1 | db.Books.find({"year":{$gt"2010"}}).pretty()
+    |                           ^
+db.Books.find({"year":{ $gt : "2010"}}).pretty()
+db.Books.find({"year":{ $gt : "2010"}}).pretty()
+db.Books.find({copies:{$gt:5},year:{$lte:2000}}).pretty()
+ 
+    |                                                 ^
+> 1 | db.Books.find({ $or:[ { copies:{$lt:3}},availabe:false}]}).pretty()
+ db.Books.updateOne({ title:"Data Structure"},{$set:{ copies:10}})
+    
+db.Books.deleteOne({autrhor:"unknown"})
