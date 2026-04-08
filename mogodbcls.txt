@@ -1,0 +1,18 @@
+db.Clothes.insertMany
+    
+  
+db.Clothes.find().pretty()
+
+db.Clothes.findOne({ category: "Shirt" })
+
+db.Clothes.find({ price: { $lte: 300 }, stock: { $gt: 10 }})
+
+db.Clothes.find({$or: [{ price: { $lt: 200 } }, { discount: true }]})
+  
+db.Clothes.update({ name: "Denim Jeans" },{ $set: { stock: 50 } })
+
+
+var item = db.Clothes.findOne({ name: "Leather Jacket" })
+
+db.Clothes.replaceOne
+db.Clothes.deleteOne({ stock: 0 })
