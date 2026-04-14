@@ -1,0 +1,23 @@
+db.orders.aggregate([
+    
+    { $unwind: "$items" },
+
+    
+    {
+        $group: {
+            _id: "$items.product",
+            totalQuantity: { $sum: "$items.quantity" }
+        }
+    },
+
+   
+    { $sort: { totalQuantity: -1 } },
+
+    {
+        $project: {
+            _id: 0,
+            product: "$_id",
+            totalQuantity: 1
+        }
+    }
+]);
