@@ -1,0 +1,7 @@
+use mashupdb
+db.students.createIndex({ mark: 1 })
+db.students.createIndex({ mark: 1 })
+db.students.getIndexes()
+db.students.dropIndex({ mark: 1 })
+mongoexport --db=mashupdb --collection=students --out=sorted3.json --sort='{ "_id": 1 }' --limit=3
+db.students.find().sort({ _id: 1 }).limit(3)
